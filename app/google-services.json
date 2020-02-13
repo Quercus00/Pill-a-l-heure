@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "975388176040",
+    "firebase_url": "https://medishareplus.firebaseio.com",
+    "project_id": "medishareplus",
+    "storage_bucket": "medishareplus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975388176040:android:665c6ab4a11b77d6ac9c9d",
+        "android_client_info": {
+          "package_name": "com.example.transverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975388176040-7tikqdflmj78hir9u1jq6bp4cpcdftng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.transverse",
+            "certificate_hash": "29c4fbbc4f2c28000934f893c2be9f1764fda5f1"
+          }
+        },
+        {
+          "client_id": "975388176040-a5tbcsu0ovi84ghl2cr497om9jqsu9tj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAobG7z2rVH1zSJpjcj1PZPMhvOvKYDBA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975388176040-a5tbcsu0ovi84ghl2cr497om9jqsu9tj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
