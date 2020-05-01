@@ -46,17 +46,33 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_info"
         app:layout_constraintVertical_bias="0.043" />
 
+
+    <Button
+        android:id="@+id/btn_liste_alarm"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:background="@drawable/btn_perso"
+        android:text="Mes alarmes"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.844" />
+
     <Button
         android:id="@+id/btn_alarm"
-        android:layout_width="376dp"
-        android:layout_height="134dp"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
         android:background="@drawable/btn_perso"
         android:text="Ajouter une alarme"
         android:textColor="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintVertical_bias="0.649" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
