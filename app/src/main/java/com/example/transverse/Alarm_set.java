@@ -80,7 +80,7 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
 
     // code qui s'exécute lorsque l'alarme a été réglée. Met à jour le texte basique
     private  void updateTimeText(Calendar c){
-        String timeText = input_pill.getText().toString() + " pill's set for : ";
+        String timeText = input_pill.getText().toString() + " réglé pour : ";
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         mTextView.setText(timeText);
     }

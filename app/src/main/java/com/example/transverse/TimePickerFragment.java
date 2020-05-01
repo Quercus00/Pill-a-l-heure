@@ -12,7 +12,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 
-// Class qui ouvre le mode horloge
+// Class qui ouvre le mode horloge test
 public class TimePickerFragment extends DialogFragment {
     @NonNull
     @Override

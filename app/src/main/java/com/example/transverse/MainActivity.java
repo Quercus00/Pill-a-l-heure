@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
         });
         //-----------------------------------------------------------------------------
 
-        Button btn_alarm = (Button) findViewById(R.id.btn_alarm);
+        /*Button btn_alarm = (Button) findViewById(R.id.btn_alarm);
         btn_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAlarm_set();
             }
-        });
+        });*/
 
         providers= Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build()//, // Email builder
@@ -98,13 +98,15 @@ public class MainActivity extends AppCompatActivity {
                 //get user
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 //show email on toast (notif discrète en bas d'écran)
-                Toast.makeText(this, ""+user.getEmail(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vous êtes connecté sur : "+user.getEmail(), Toast.LENGTH_SHORT).show();
                 //set button sign out
                 btn_sign_out.setEnabled(true);
                 //test = 1;
+                Intent intent = new Intent(this, Alarm_set.class);
+                startActivity(intent);
             }
             else{
-                Toast.makeText(this, ""+response.getError().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+response.getError().getMessage(), Toast.LENGTH_LONG).show();
             }
         }
     }

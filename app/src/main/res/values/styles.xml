@@ -13,4 +13,5 @@
         <item name="android:windowTitleBackgroundStyle">@color/colorPrimaryDark</item>  // a changer et trouver le bon truc pour la couleur "medishare" en authentification
 
     </style>
+    <!--- test -->
 </resources>

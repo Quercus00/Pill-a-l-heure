@@ -30,7 +30,7 @@ public class NotificationHelper extends ContextWrapper{
         channel1.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 
         getManager().createNotificationChannel(channel1);
-    }
+    }//test
 
     public NotificationManager getManager(){
         if(nmanager == null){

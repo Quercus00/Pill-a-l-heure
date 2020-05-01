@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 public class Accueil extends AppCompatActivity {
-
+// test
     Button btn_sign_out;
 
     @Override

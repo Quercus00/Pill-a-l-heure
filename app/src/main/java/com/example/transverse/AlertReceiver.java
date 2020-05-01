@@ -7,6 +7,7 @@ import androidx.core.app.NotificationCompat;
 
 
 // Classe qui envoie la notif sur le tel
+//test
 public class AlertReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
