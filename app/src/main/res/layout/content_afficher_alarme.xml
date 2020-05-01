@@ -8,10 +8,27 @@
     tools:context=".Afficher_alarme"
     tools:showIn="@layout/activity_afficher_alarme">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/boite"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/boite2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/boite2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text=""
+            app:layout_constraintTop_toBottomOf="@id/boite"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -76,13 +76,20 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
 
         updateTimeText(c);
         startAlarm(c);
+
+
     }
 
     // code qui s'exécute lorsque l'alarme a été réglée. Met à jour le texte basique
-    private  void updateTimeText(Calendar c){
+    private  Alarm updateTimeText(Calendar c){
         String timeText = input_pill.getText().toString() + " réglé pour : ";
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         mTextView.setText(timeText);
+
+        //création d'un objet "alarme" pour l'afficher dans la page Afficher alarme
+        // j'ai modifié le type de la méthode pour pourvoir retourner l'obejet, mais à la base c'est un void
+        Alarm alarme = new Alarm(c, input_pill);
+        return alarme;
     }
 
     //Lance l'alarme pour la date réglée
@@ -92,6 +99,8 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+
+
     }
 
 
