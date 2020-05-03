@@ -14,9 +14,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 public class activity_profil extends AppCompatActivity {
+
     Button btn_retour;
     Button btn_deconexion;
     Button btn_delete;
+    Button btn_mdp;
+
     TextView txt_info;
     TextView txt_mail;
 
@@ -67,6 +70,7 @@ public class activity_profil extends AppCompatActivity {
             }
         });
 
+        // code pour supprimer le compte via la classe Alert dialog (message de dernière chance)
         btn_delete = findViewById(R.id.suppr_compte);
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +78,16 @@ public class activity_profil extends AppCompatActivity {
                 openDialog();
             }
         });
+
+        btn_mdp = findViewById(R.id.btn_mdp);
+        btn_mdp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetMdp();
+            }
+        });
+
+
     }
 
 
@@ -96,6 +110,19 @@ public class activity_profil extends AppCompatActivity {
     public void deconexion(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void resetMdp() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email ="";
+        if (user != null) {
+            for (UserInfo profile : user.getProviderData()) {
+                email = profile.getEmail();
+            }
+        }
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.sendPasswordResetEmail(email);
+        Toast.makeText(this, "Un mail vous a été renvoyé pour réinitialiser votre mot de passe", Toast.LENGTH_LONG).show();
     }
 
 }

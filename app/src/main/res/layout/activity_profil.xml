@@ -19,7 +19,6 @@
         app:layout_collapseMode="pin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -29,26 +28,26 @@
         android:id="@+id/txt_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="txt info"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/txt_mail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txt_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:text="txt mail"
-        app:layout_constraintBottom_toTopOf="@+id/deconnexion"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.64" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <Button
         android:id="@+id/btn_return"
@@ -57,24 +56,27 @@
         android:background="@drawable/btn_perso"
         android:text="retour"
         android:textColor="#FFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txt_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintVertical_bias="0.378" />
 
     <Button
         android:id="@+id/suppr_compte"
         android:layout_width="200dp"
         android:layout_height="60dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/btn_perso"
         android:text="Supprimer mon compte"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deconnexion" />
+        app:layout_constraintTop_toBottomOf="@+id/deconnexion"
+        app:layout_constraintVertical_bias="0.411" />
 
     <Button
         android:id="@+id/deconnexion"
@@ -85,8 +87,25 @@
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <Button
+        android:id="@+id/btn_mdp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/btn_perso"
+        android:text="Changer mon mot de passe"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/deconnexion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_mail"
+        app:layout_constraintVertical_bias="0.98" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
