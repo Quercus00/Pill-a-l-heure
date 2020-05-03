@@ -6,19 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 public class Accueil extends AppCompatActivity {
 
     private static final int MY_REQUEST_CODE = 666;
-// test
+
     Button btn_sign_out;
     Button btn_alarm;
     Button btn_alarm_list;
+    Button btn_profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +30,7 @@ public class Accueil extends AppCompatActivity {
             }
         });
 
-        //go page ajouter alarme
+        /*go page ajouter alarme
         btn_alarm = findViewById(R.id.btn_alarm);
         btn_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +38,8 @@ public class Accueil extends AppCompatActivity {
                 openAlarm_set();
             }
         });
+
+         */
 
 
         //go page liste alarmes
@@ -53,26 +52,15 @@ public class Accueil extends AppCompatActivity {
         });
 
 
-        TextView txt_info = findViewById(R.id.txt_info);
-        TextView txt_mail = findViewById(R.id.txt_mail);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            for (UserInfo profile : user.getProviderData()) {
-
-                // Id of the provider (ex: google.com)
-                //String providerId = profile.getProviderId();
-
-                // UID specific to the provider
-                //String uid = profile.getUid();
-
-                // Name, email address, and profile photo Url
-                String name = profile.getDisplayName();
-                String email = profile.getEmail();
-
-                txt_info.setText(name);
-                txt_mail.setText(email);
+        btn_profil = findViewById(R.id.btn_profil);
+        btn_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_profil();
             }
-        }
+        });
+
+
     }
 
     //code pour retourner sur une page précédente
@@ -87,9 +75,17 @@ public class Accueil extends AppCompatActivity {
         finishActivity(MY_REQUEST_CODE);
     }
 
+    public void open_profil(){
+        Intent intent = new Intent(this, activity_profil.class);
+        startActivity(intent);
+        finishActivity(MY_REQUEST_CODE);
+    }
+
     public void openAlarm_list(){
         Intent intent = new Intent(this, Afficher_alarme.class);
         startActivity(intent);
         finishActivity(MY_REQUEST_CODE);
     }
+
+
 }

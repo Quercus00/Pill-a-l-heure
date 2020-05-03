@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity_profil"></activity>
         <activity
             android:name=".Afficher_alarme"
             android:label="@string/title_activity_afficher_alarme"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Accueil" />
         <activity android:name=".Alarm_set" />
         <activity android:name=".MainActivity">

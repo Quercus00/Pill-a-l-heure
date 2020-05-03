@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,12 +16,17 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
     private static final int MY_REQUEST_CODE = 666; // n'importe quelle valeur, sert juste de condition pour l'authentification
     List<AuthUI.IdpConfig> providers; // liste des modes d'authentification
     private Button btn_sign_out;
-    //int test = 0;
+
+    private static final String TAG = "MyActivity";
+
+    private static final String KEY_NOM  = "Nom";
+    private static final String KEY_MAIL  = "email";
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +104,35 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Vous êtes connecté sur : "+user.getEmail(), Toast.LENGTH_SHORT).show();
                 //set button sign out
                 btn_sign_out.setEnabled(true);
-                //test = 1;
+
+
+                /*
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Map<String, Object> utilisateur = new HashMap<>();
+
+
+                String nom = user.getDisplayName();
+                String email = user.getEmail();
+                utilisateur.put(KEY_NOM, nom);
+                utilisateur.put(KEY_MAIL, email);
+                db.collection("utilisateurs")
+                        .add(utilisateur)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
+
+                 */
+
+
                 Intent intent = new Intent(this, Accueil.class);
                 startActivity(intent);
             }

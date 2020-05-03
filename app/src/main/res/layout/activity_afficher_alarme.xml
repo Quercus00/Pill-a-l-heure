@@ -23,6 +23,17 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
+
+            <EditText
+                android:id="@+id/input_pill"
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="110dp"
+                android:ems="10"
+                android:hint="Nom du médicament à ajouter"
+                android:inputType="textPersonName" />
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
