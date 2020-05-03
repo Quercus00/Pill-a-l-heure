@@ -1,4 +1,4 @@
-package com.example.transverse;
+package com.example.transverse.autres;
 
 import android.widget.EditText;
 

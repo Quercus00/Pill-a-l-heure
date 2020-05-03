@@ -5,19 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".MainActivity">
+    tools:context=".activités.MainActivity">
 
 
     <Button
         android:id="@+id/btn_sign_out"
         android:layout_width="116dp"
         android:layout_height="52dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/btn_perso"
         android:text="déconnexion"
         android:textColor="#FFFF"
         android:textSize="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_alarm"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"

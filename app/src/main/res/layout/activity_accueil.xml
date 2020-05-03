@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".Accueil">
+    tools:context=".activités.Accueil">
 
     <Button
         android:id="@+id/btn_sign_out"

@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_profil"></activity>
+        <activity android:name=".activités.activity_profil"></activity>
         <activity
-            android:name=".Afficher_alarme"
+            android:name=".activités.Afficher_alarme"
             android:label="@string/title_activity_afficher_alarme"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Accueil" />
-        <activity android:name=".Alarm_set" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activités.Accueil" />
+        <activity android:name=".activités.Alarm_set" />
+        <activity android:name=".activités.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlertReceiver" />
+        <receiver android:name=".autres.AlertReceiver" />
     </application>
 
 </manifest>

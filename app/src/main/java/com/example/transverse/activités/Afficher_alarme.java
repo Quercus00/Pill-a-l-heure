@@ -1,8 +1,10 @@
-package com.example.transverse;
+package com.example.transverse.activités;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.transverse.R;
+import com.example.transverse.activités.Alarm_set;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;

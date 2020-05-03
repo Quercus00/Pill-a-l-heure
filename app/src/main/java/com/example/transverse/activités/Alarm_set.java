@@ -1,4 +1,4 @@
-package com.example.transverse;
+package com.example.transverse.activités;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -14,6 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.example.transverse.autres.Alarm;
+import com.example.transverse.autres.AlertReceiver;
+import com.example.transverse.R;
+import com.example.transverse.autres.TimePickerFragment;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -81,7 +86,7 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
     }
 
     // code qui s'exécute lorsque l'alarme a été réglée. Met à jour le texte basique
-    private  Alarm updateTimeText(Calendar c){
+    private Alarm updateTimeText(Calendar c){
         String timeText = input_pill.getText().toString() + " réglé pour : ";
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         mTextView.setText(timeText);

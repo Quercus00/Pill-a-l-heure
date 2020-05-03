@@ -1,4 +1,4 @@
-package com.example.transverse;
+package com.example.transverse.autres;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -8,6 +8,8 @@ import android.content.ContextWrapper;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
+
+import com.example.transverse.R;
 
 public class NotificationHelper extends ContextWrapper{
     public static final String channel1ID = "Channel1ID";
