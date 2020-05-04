@@ -32,16 +32,10 @@ public class Accueil extends AppCompatActivity {
             }
         });
 
-        /*go page ajouter alarme
-        btn_alarm = findViewById(R.id.btn_alarm);
-        btn_alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAlarm_set();
-            }
-        });
-
-         */
+        try {
+            this.getSupportActionBar().setTitle("Medishare - Accueil");
+        }
+        catch (NullPointerException e){}
 
 
         //go page liste alarmes

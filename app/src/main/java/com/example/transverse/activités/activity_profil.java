@@ -30,6 +30,12 @@ public class activity_profil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
 
+        // configure le titre de la page
+        try {
+            this.getSupportActionBar().setTitle("Médishare - Mon profil");
+        }
+        catch (NullPointerException e){}
+
         // affiche les informations du compte sur la page
         txt_info = findViewById(R.id.txt_info);
         txt_mail = findViewById(R.id.txt_mail);

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.transverse.R;
-import com.example.transverse.autres.Alarm;
 import com.example.transverse.autres.AlertReceiver;
 import com.example.transverse.autres.TimePickerFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,6 +41,11 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // permet d'enlever le gros titre moche police 72 de l'activité
+        try {
+            this.getSupportActionBar().setTitle("");
+        }
+        catch (NullPointerException e){}
 
         input_pill = findViewById(R.id.input_pill);
 

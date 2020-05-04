@@ -1,5 +1,9 @@
 package com.example.transverse.activités;
 
+//---------------------------------------------------------------------------------
+//--------------Activité plus utilisée, tout est fusionné avec afficher_alarme-----
+//---------------------------------------------------------------------------------
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
