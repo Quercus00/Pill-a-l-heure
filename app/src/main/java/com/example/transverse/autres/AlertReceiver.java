@@ -7,12 +7,12 @@ import androidx.core.app.NotificationCompat;
 
 
 // Classe qui envoie la notif sur le tel
-//test
+
 public class AlertReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         NotificationHelper notificationHelper = new NotificationHelper(context);
-        NotificationCompat.Builder nb = notificationHelper.getChannel1Notification("Medishare","Il est l'heure de prendre votre médicament !"); // bug car manque le code de NotificationHelper
+        NotificationCompat.Builder nb = notificationHelper.getChannel1Notification("Medishare","Il est l'heure de prendre votre médicament !");
         notificationHelper.getManager().notify(1, nb.build());
     }
 }

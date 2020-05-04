@@ -17,12 +17,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -30,8 +34,9 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
     private static final int MY_REQUEST_CODE = 666; // sert de "code secret"
 
     private TextView nom;
-    private TextView boite2;
     private EditText input_pill;
+    ArrayList <String> liste_alarme = new ArrayList<>();
+
 
 
     @Override
@@ -54,14 +59,13 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //openAlarm_set();
+
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
 
-        nom = findViewById(R.id.nom);
-        Calendar calendar = Calendar.getInstance();
+        //nom = findViewById(R.id.nom);
 
 
 
@@ -77,11 +81,14 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         c.set(Calendar.MINUTE, minute);
         c.set(Calendar.SECOND, 0);
 
-        String alarme = updateTimeText(c);
-        startAlarm(c);
+        liste_alarme.add(updateTimeText(c));
+        startAlarm(c); // programme la notif pour l'heure choisi
 
-        nom.setText(alarme);
 
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_listview, liste_alarme);
+        ListView listView = findViewById(R.id.liste_alarmes);
+        listView.setAdapter(adapter);
+        Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
 
     }
 
