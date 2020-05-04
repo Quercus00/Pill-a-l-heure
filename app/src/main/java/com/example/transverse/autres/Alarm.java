@@ -7,9 +7,9 @@ import java.util.Calendar;
 
 public class Alarm {
     Calendar date;
-    EditText nom;
+    String nom;
 
-    public Alarm(Calendar date, EditText nom) {
+    public Alarm(Calendar date, String nom) {
         this.date = date;
         this.nom = nom;
     }
@@ -21,7 +21,7 @@ public class Alarm {
         return date;
     }
 
-    public EditText getNom() {
+    public String getNom() {
         return nom;
     }
 
@@ -29,7 +29,7 @@ public class Alarm {
         this.date = date;
     }
 
-    public void setNom(EditText nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 

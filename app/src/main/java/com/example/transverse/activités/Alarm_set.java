@@ -81,8 +81,6 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
 
         updateTimeText(c);
         startAlarm(c);
-
-
     }
 
     // code qui s'exécute lorsque l'alarme a été réglée. Met à jour le texte basique
@@ -93,7 +91,10 @@ public class Alarm_set extends AppCompatActivity implements TimePickerDialog.OnT
 
         //création d'un objet "alarme" pour l'afficher dans la page Afficher alarme
         // j'ai modifié le type de la méthode pour pourvoir retourner l'obejet, mais à la base c'est un void
-        Alarm alarme = new Alarm(c, input_pill);
+
+
+        //re modifié, il faut remettre les parametres de new alarm ( c'etait pour un test de afficher alarme)
+        Alarm alarme = new Alarm();
         return alarme;
     }
 
