@@ -1,4 +1,4 @@
-package com.example.transverse.activités;
+package com.example.transverse.autres;
 
 //---------------------------------------------------------------------------------
 //--------------Activité plus utilisée, tout est fusionné avec afficher_alarme-----
@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.transverse.activités.Accueil;
 import com.example.transverse.autres.Alarm;
 import com.example.transverse.autres.AlertReceiver;
 import com.example.transverse.R;

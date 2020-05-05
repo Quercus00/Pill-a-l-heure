@@ -115,11 +115,14 @@ public class activity_profil extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // renvoie à l'authentification
     public void deconexion(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+
+    // fonction qui envoie un mail de réinitialisation de mot de passe
     public void resetMdp() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email ="";

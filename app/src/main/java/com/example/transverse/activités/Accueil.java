@@ -15,7 +15,6 @@ public class Accueil extends AppCompatActivity {
     private static final int MY_REQUEST_CODE = 666;
 
     Button btn_sign_out;
-    Button btn_alarm;
     Button btn_alarm_list;
     Button btn_profil;
 
@@ -55,8 +54,6 @@ public class Accueil extends AppCompatActivity {
                 open_profil();
             }
         });
-
-
     }
 
     //code pour retourner sur une page précédente
@@ -65,11 +62,6 @@ public class Accueil extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openAlarm_set(){
-        Intent intent = new Intent(this, Alarm_set.class);
-        startActivity(intent);
-        finishActivity(MY_REQUEST_CODE);
-    }
 
     public void open_profil(){
         Intent intent = new Intent(this, activity_profil.class);
