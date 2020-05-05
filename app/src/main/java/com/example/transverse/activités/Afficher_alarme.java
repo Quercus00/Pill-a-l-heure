@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.transverse.R;
 import com.example.transverse.autres.Alarm_set;
 import com.example.transverse.autres.AlertReceiver;
+import com.example.transverse.autres.InstructionDialog;
 import com.example.transverse.autres.TimePickerFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -34,9 +37,9 @@ import java.util.Calendar;
 public class Afficher_alarme extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     private static final int MY_REQUEST_CODE = 666; // sert de "code secret"
 
-    private TextView nom;
     private EditText input_pill;
     ArrayList <String> liste_alarme = new ArrayList<>();
+    ArrayList <Calendar> dates_alarmes = new ArrayList<>();
 
 
 
@@ -46,6 +49,7 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         setContentView(R.layout.activity_afficher_alarme);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        openInstruction();
 
         // permet d'enlever le gros titre moche police 72 de l'activité
         try {
@@ -71,6 +75,7 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
 
 
 
+
     }
 
 
@@ -83,14 +88,36 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         c.set(Calendar.SECOND, 0);
 
         liste_alarme.add(updateTimeText(c));
+        dates_alarmes.add(c);
         startAlarm(c); // programme la notif pour l'heure choisi
 
 
-        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_listview, liste_alarme);
-        ListView listView = findViewById(R.id.liste_alarmes);
+        final ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_listview, liste_alarme);
+        final ListView listView = findViewById(R.id.liste_alarmes);
         listView.setAdapter(adapter);
         Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
 
+
+        // tester  avec longclick pour suppr
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                SparseBooleanArray positionchecker = listView.getCheckedItemPositions();
+
+                for (int i = listView.getCount(); i >=0 ; i --){
+                    if (positionchecker.get(i)){
+
+                        // non fonctionnel à 100% : supprime TOUTES les alarmes 
+                        //cancelAlarm(dates_alarmes.get(i));
+                        adapter.remove(liste_alarme.get(i));
+                    }
+                }
+
+                positionchecker.clear();
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     // code qui s'exécute lorsque l'alarme a été réglée. Met à jour le texte basique
@@ -112,26 +139,22 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
 
 
     // Annule l'arlame réglée et réinitialise la zone texte
-    private  void cancelAlarm(){
+    private  void cancelAlarm(Calendar dates_alarmes){
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
 
         alarmManager.cancel(pendingIntent);
-        nom.setText("Traitement annulé !");
+
     }
 
 
 
-
-
-
-
-    // ouvre la page de réglage d'alarme
-    public void openAlarm_set(){
-        Intent intent = new Intent(this, Alarm_set.class);
-        startActivity(intent);
-        finishActivity(MY_REQUEST_CODE);
+    // popup pour informer sur la suppression d'alarme (cf InstructionDialog.java)
+    public void openInstruction() {
+        InstructionDialog exampleDialog = new InstructionDialog();
+        exampleDialog.show(getSupportFragmentManager(), "");
     }
+
 
 }
