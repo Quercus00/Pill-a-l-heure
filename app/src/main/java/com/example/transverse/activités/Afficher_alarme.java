@@ -53,7 +53,7 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
 
         // permet d'enlever le gros titre moche police 72 de l'activité
         try {
-            this.getSupportActionBar().setTitle("");
+            this.getSupportActionBar().setTitle("Mes alarmes");
         }
         catch (NullPointerException e){}
 
