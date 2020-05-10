@@ -19,7 +19,7 @@
             android:hint="Adresse mail"
             android:layout_margin="15dp"
             android:inputType="textPersonName"
-            android:textColor="#CBCBCB"
+            android:textColor="#343434"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
