@@ -9,7 +9,11 @@
         android:roundIcon="@drawable/ic_medishare"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activités.activity_profil"></activity>
+        <activity
+            android:name=".activités.Activity_amis"
+            android:label="@string/title_activity_amis"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activités.activity_profil" />
         <activity
             android:name=".activités.Afficher_alarme"
             android:label="@string/title_activity_afficher_alarme"

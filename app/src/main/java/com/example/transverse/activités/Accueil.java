@@ -17,6 +17,7 @@ public class Accueil extends AppCompatActivity {
     Button btn_sign_out;
     Button btn_alarm_list;
     Button btn_profil;
+    Button btn_amis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,15 @@ public class Accueil extends AppCompatActivity {
                 open_profil();
             }
         });
+
+        btn_amis = findViewById(R.id.btn_amis);
+        btn_amis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_amis();
+
+            }
+        });
     }
 
     //code pour retourner sur une page précédente
@@ -71,6 +81,12 @@ public class Accueil extends AppCompatActivity {
 
     public void openAlarm_list(){
         Intent intent = new Intent(this, Afficher_alarme.class);
+        startActivity(intent);
+        finishActivity(MY_REQUEST_CODE);
+    }
+
+    public void open_amis(){
+        Intent intent = new Intent(this, Activity_amis.class);
         startActivity(intent);
         finishActivity(MY_REQUEST_CODE);
     }

@@ -107,7 +107,7 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
                 for (int i = listView.getCount(); i >=0 ; i --){
                     if (positionchecker.get(i)){
 
-                        // non fonctionnel à 100% : supprime TOUTES les alarmes 
+                        // non fonctionnel à 100% : supprime TOUTES les alarmes
                         //cancelAlarm(dates_alarmes.get(i));
                         adapter.remove(liste_alarme.get(i));
                     }
