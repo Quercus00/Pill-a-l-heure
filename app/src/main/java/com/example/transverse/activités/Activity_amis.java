@@ -3,6 +3,8 @@ package com.example.transverse.activités;
 import android.os.Bundle;
 
 import com.example.transverse.R;
+import com.example.transverse.autres.InstructionDialog;
+import com.example.transverse.autres.InstructionDialog2;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -37,6 +41,7 @@ public class Activity_amis extends AppCompatActivity {
         setContentView(R.layout.activity_amis);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        openInstruction();
 
         try {
             this.getSupportActionBar().setTitle("Mes amis");
@@ -94,5 +99,29 @@ public class Activity_amis extends AppCompatActivity {
         final ListView listView = findViewById(R.id.liste_amis);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                SparseBooleanArray positionchecker = listView.getCheckedItemPositions();
+
+                for (int i = listView.getCount(); i >=0 ; i --){
+                    if (positionchecker.get(i)){
+                        adapter.remove(liste_amis.get(i));
+                    }
+                }
+
+                positionchecker.clear();
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
+    }
+
+    // popup pour informer sur la suppression d'alarme (cf InstructionDialog.java)
+    public void openInstruction() {
+        InstructionDialog2 exampleDialog = new InstructionDialog2();
+        exampleDialog.show(getSupportFragmentManager(), "");
     }
 }
