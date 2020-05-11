@@ -70,7 +70,6 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
             }
         });
 
-        //nom = findViewById(R.id.nom);
 
 
 
@@ -92,9 +91,12 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         startAlarm(c); // programme la notif pour l'heure choisi
 
 
+        /** Code pour afficher les alarmes sous forme de listview **/
         final ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_listview, liste_alarme);
         final ListView listView = findViewById(R.id.liste_alarmes);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
         listView.setAdapter(adapter);
+
         Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
 
 
