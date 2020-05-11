@@ -96,7 +96,6 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         final ListView listView = findViewById(R.id.liste_alarmes);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
         listView.setAdapter(adapter);
-
         Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
 
 

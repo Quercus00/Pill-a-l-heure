@@ -18,7 +18,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,7 @@ public class Activity_amis extends AppCompatActivity {
     private static final String TAG = "";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<String> liste_amis = new ArrayList<>();
+    private EditText input_mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class Activity_amis extends AppCompatActivity {
          * bug possible -> problème d'autorisations de lecture/ecriture : non résolu
          *
          * pas de plantage lors de l'éxécution, aucun affichage de la liste qui récupère les données
-         */
+
         DocumentReference docRef = db.collection("utilisateurs").document("5jY2Mzq02tKS94sUM3Zq");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
@@ -70,19 +73,26 @@ public class Activity_amis extends AppCompatActivity {
         final ListView listView = findViewById(R.id.liste_amis);
         //listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
         listView.setAdapter(adapter);
-
+        */
         //----------------------------------------------------------------------------------------------------------------------------
 
 
 
+        input_mail = findViewById(R.id.input_mail);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                liste_amis.add(input_mail.getText().toString());
             }
         });
+
+
+
+        final ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_listview, liste_amis);
+        final ListView listView = findViewById(R.id.liste_amis);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
+        listView.setAdapter(adapter);
     }
 }

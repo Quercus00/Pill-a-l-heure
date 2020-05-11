@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activités.Activity_amis"
-    tools:showIn="@layout/activity_amis">
+    tools:showIn="@layout/activity_amis"
+    android:background="@color/colorPrimary">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
