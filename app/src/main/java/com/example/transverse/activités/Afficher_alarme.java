@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.transverse.R;
-import com.example.transverse.autres.Alarm_set;
 import com.example.transverse.autres.AlertReceiver;
 import com.example.transverse.autres.InstructionDialog;
 import com.example.transverse.autres.TimePickerFragment;
@@ -24,9 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 
 import java.text.DateFormat;
@@ -69,12 +66,6 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
                 timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
-
-
-
-
-
-
     }
 
 
@@ -96,7 +87,9 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         final ListView listView = findViewById(R.id.liste_alarmes);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE); // censé activer les checkbox
         listView.setAdapter(adapter);
-        Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
+
+        // permet d'afficher la liste des alarmes, utile pour debuger
+        //Toast.makeText(this,"" + liste_alarme, Toast.LENGTH_LONG).show();
 
 
         // tester  avec longclick pour suppr
@@ -128,6 +121,8 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         return timeText;
     }
 
+
+
     //Lance l'alarme pour la date réglée
     private void startAlarm(Calendar c){
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -144,9 +139,7 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-
         alarmManager.cancel(pendingIntent);
-
     }
 
 
@@ -156,6 +149,4 @@ public class Afficher_alarme extends AppCompatActivity implements TimePickerDial
         InstructionDialog exampleDialog = new InstructionDialog();
         exampleDialog.show(getSupportFragmentManager(), "");
     }
-
-
 }

@@ -19,7 +19,6 @@
             android:label="@string/title_activity_afficher_alarme"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activités.Accueil" />
-        <activity android:name=".autres.Alarm_set" />
         <activity android:name=".activités.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
