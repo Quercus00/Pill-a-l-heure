@@ -32,7 +32,7 @@ public class activity_profil extends AppCompatActivity {
 
         // configure le titre de la page
         try {
-            this.getSupportActionBar().setTitle("Médishare - Mon profil");
+            this.getSupportActionBar().setTitle("MediShare - Mon profil");
         }
         catch (NullPointerException e){}
 

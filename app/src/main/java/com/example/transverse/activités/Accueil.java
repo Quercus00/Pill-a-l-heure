@@ -33,7 +33,7 @@ public class Accueil extends AppCompatActivity {
         });
 
         try {
-            this.getSupportActionBar().setTitle("Medishare - Accueil");
+            this.getSupportActionBar().setTitle("MediShare - Accueil");
         }
         catch (NullPointerException e){}
 
